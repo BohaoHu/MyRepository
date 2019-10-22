@@ -1,26 +1,22 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>Login page</title>
-	<link rel="stylesheet" href="file:///E:/Dokumenty/web_dev/style.css">
-	<link rel="style.css" rel="stylesheet" type="text/css">
-</head>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>massive multiplayer game</title>
+    <style>
+      * { margin: 0; padding: 0; }
+      canvas{ height: 100%; position: fixed; width: 100%; }
+      img {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas></canvas>
+    <img id="img_sight" src="assets/sight.png" />
+    <img id="img_sprites" src="assets/sprites.png" />
+    <img id="img_background" src="assets/grass.png" />
 
-<body>
-	<div class="login">
-		<h1>Welcome!  Unknown player</h1>
-		<form>
-			<input type="text" name="username" id="username" placeholder="Login" required>
-			
-			<input type="text" name="password" id="password" placeholder="Password" required>
-			
-			<input type="submit" value="Let's go!">
-		</form>
-		<p>FIRST TIMER?
-			<button>Register</button></p>
-		<p>Forgot Password?
-			<button>Reset password</button></p>
-	</div>	
-</body>
+    <script src="./src/index.js"></script>
+  </body>
 </html>
