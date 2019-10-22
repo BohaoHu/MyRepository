@@ -236,13 +236,6 @@ class Interface {
 	}
 }
 
-const STATE = {
-	MENU: 0,
-	RUNNING: 1,
-	RESPAWN: 2,
-	GAMEOVER: 3
-};
-
 class Game {
 	constructor(gameWidth, gameHeight) {
 	    
@@ -351,8 +344,14 @@ class Game {
 
 
 
+// This is the actual index.js
 
-
+const STATE = {
+	MENU: 0,
+	RUNNING: 1,
+	RESPAWN: 2,
+	GAMEOVER: 3
+};
 
 const canvas = document.querySelector('canvas');
 const c = canvas.getContext('2d');

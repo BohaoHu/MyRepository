@@ -3,9 +3,10 @@ class Interface {
 
 		// Resizing the browser window causes the init function to rebuild
 		addEventListener("resize", () => {
-		    canvas.width = innerWidth;
-		    canvas.height = innerHeight;
-		    init()
+			canvas.width = innerWidth;
+			canvas.height = innerHeight;
+		    game.gameWidth = canvas.width;
+		    game.gameHeight = canvas.height;
 		});
 
 		// Mouse events mouse move changes the sight's coordinates, 
@@ -13,7 +14,7 @@ class Interface {
 		// (note: the deltaY value returned will differ from browser to browser
 		// thus, absolute value is taken)
 		addEventListener("mousedown", event => {
-		  	if (event.which) {
+		  	switch(event.which) {
 		    	case 1:
 		    		soldier.shoot();
 		    		break;
@@ -23,22 +24,9 @@ class Interface {
 		    	case 3:
 		    		soldier.pick();
 		    		break;
-		  	}else if (event.buttons) {
-		    	case 0:
-		    		soldier.shoot();
-		    		break;
-		    	case 1:
-		    		soldier.throw();
-		    		break;
-		    	case 2:
-		    		soldier.pick();
-		    		break;
 		  	}
 		});
-		addEventListener("mousemove", event => {
-		    sight.x = event.clientX;
-		    sight.y = event.clientY;
-		});
+
 		addEventListener("wheel", event => {
 		  	switch (Math.sign(event.deltaY)) {
 		  		case 1:
@@ -76,16 +64,16 @@ class Interface {
 	    addEventListener("keyup", event => {
 		    switch (event.keyCode) {
 		        case 37:
-		          	if (soldier.speed.x < 0) soldier.stopX();
+		          	if (soldier.velocity.x < 0) soldier.stopX();
 		          	break;
 		        case 38:
-		        	if (soldier.speed.y > 0) soldier.stopY();
+		        	if (soldier.velocity.y < 0) soldier.stopY();
 		        	break;
 		        case 39:
-		          	if (soldier.speed > 0) soldier.stopX();
+		          	if (soldier.velocity.x > 0) soldier.stopX();
 		          	break;
-		        case 38:
-		        	if (soldier.speed.y > 0) soldier.stopY();
+		        case 40:
+		        	if (soldier.velocity.y > 0) soldier.stopY();
 		        	break;
 		      }
 		});
